@@ -2,6 +2,8 @@
 
 Fify turns grounded AI answers into trusted interactive comparisons, plans, checklists, timelines, and decision views. It preserves the complete plain-language answer as an authoritative fallback and performs no consequential actions.
 
+![Fify rendering a grounded Steve Jobs timeline as an interactive information view inside Codex.](plugins/fify/assets/fify-timeline-hero.png)
+
 This repository is a Git-backed marketplace for Codex and ChatGPT desktop. The plugin is self-contained: it requires Node.js 20 or newer, installs no packages, asks users for no API key, and runs a bundled deterministic information-view compiler locally.
 
 ## Install in Codex
