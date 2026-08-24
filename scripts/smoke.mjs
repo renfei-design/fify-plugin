@@ -1,10 +1,16 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const child = spawn(process.execPath, [path.join(root, "plugins/fify/server/server.mjs")], {
+const pluginRoot = path.join(root, "plugins/fify");
+const mcp = JSON.parse(await readFile(path.join(pluginRoot, ".mcp.json"), "utf8"));
+const server = mcp.mcpServers.fify;
+assert.equal(server.cwd, ".", "The MCP process must start from the installed plugin root.");
+const child = spawn(server.command, server.args, {
+  cwd: path.resolve(pluginRoot, server.cwd),
   stdio: ["pipe", "pipe", "pipe"],
   env: { PATH: process.env.PATH ?? "" },
 });

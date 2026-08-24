@@ -14,9 +14,13 @@ assert.equal(marketplace.plugins[0].source.path, "./plugins/fify");
 
 const manifest = await readJson("plugins/fify/.codex-plugin/plugin.json");
 assert.equal(manifest.name, "fify");
-assert.equal(manifest.version, "0.1.0");
+assert.equal(manifest.version, "0.1.1");
 assert.equal(manifest.mcpServers, "./.mcp.json");
 assert.ok(await exists("plugins/fify/server/server.mjs"));
+const mcp = await readJson("plugins/fify/.mcp.json");
+assert.equal(mcp.mcpServers.fify.command, "node");
+assert.deepEqual(mcp.mcpServers.fify.args, ["./server/server.mjs"]);
+assert.equal(mcp.mcpServers.fify.cwd, ".");
 for (const asset of [manifest.interface.logo, ...manifest.interface.screenshots]) {
   assert.ok(await exists(path.join("plugins/fify", asset)), `Missing ${asset}`);
 }

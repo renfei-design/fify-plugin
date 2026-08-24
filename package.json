@@ -1,6 +1,6 @@
 {
   "name": "fify-plugin-marketplace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Git-backed Codex marketplace for the Fify information UI plugin.",
   "license": "Apache-2.0",
@@ -13,4 +13,3 @@
     "check": "npm run validate && npm run smoke"
   }
 }
-

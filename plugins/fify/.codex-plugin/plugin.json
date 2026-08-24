@@ -1,6 +1,6 @@
 {
   "name": "fify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn grounded AI answers into trusted interactive information views.",
   "author": {
     "name": "Fify Contributors"
@@ -44,4 +44,3 @@
   },
   "mcpServers": "./.mcp.json"
 }
-
