@@ -15,6 +15,8 @@ assert.equal(marketplace.plugins[0].source.path, "./plugins/fify");
 const manifest = await readJson("plugins/fify/.codex-plugin/plugin.json");
 assert.equal(manifest.name, "fify");
 assert.equal(manifest.version, "0.1.2");
+assert.equal(manifest.author.name, "renfei-design");
+assert.equal(manifest.repository, "https://github.com/renfei-design/fify-plugin");
 assert.equal(manifest.mcpServers, "./.mcp.json");
 assert.ok(await exists("plugins/fify/server/server.mjs"));
 const mcp = await readJson("plugins/fify/.mcp.json");
@@ -24,6 +26,16 @@ assert.equal(mcp.mcpServers.fify.cwd, ".");
 for (const asset of [manifest.interface.logo, ...manifest.interface.screenshots]) {
   assert.ok(await exists(path.join("plugins/fify", asset)), `Missing ${asset}`);
 }
+
+const registry = await readJson("server.json");
+assert.equal(registry.name, "io.github.renfei-design/fify");
+assert.equal(registry.repository.url, "https://github.com/renfei-design/fify-plugin");
+assert.equal(registry.remotes.length, 1);
+assert.equal(registry.remotes[0].type, "streamable-http");
+assert.equal(
+  registry.remotes[0].url,
+  "https://fify-chatgpt.renfei1992.chatgpt.site/api/mcp",
+);
 
 const forbidden = [
   /OPENAI_API_KEY/,

@@ -19,13 +19,30 @@ Start a new Codex task after installation, then ask normally or tag `@Fify`:
 - Make this rollout plan a checklist I can work through.
 - Show these milestones as a timeline.
 
+The repository is the marketplace. No package installation, Fify account, or end-user API key is required.
+
 ## Use with ChatGPT
 
-This Git marketplace cannot be added directly as a user-defined ChatGPT marketplace. For developer testing in ChatGPT, enable developer mode and create an app that connects to Fify's deployed MCP endpoint:
+This Git marketplace cannot be added directly as a user-defined ChatGPT marketplace. You can still use Fify in ChatGPT through a developer-mode MCP connection:
+
+1. Open **Settings → Security and login** and enable **Developer mode**.
+2. Open the ChatGPT Plugins page and select the plus button.
+3. Name the connection **Fify** and use the public MCP endpoint below.
+4. Review the discovered read-only tool, create the connection, and add it to a new chat.
 
 `https://fify-chatgpt.renfei1992.chatgpt.site/api/mcp`
 
-Public discovery across ChatGPT and Codex requires publication to OpenAI's universal plugin directory. This repository is the Codex distribution and testing source; it does not by itself make Fify discoverable in ChatGPT. See OpenAI's [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) and [plugin quickstart](https://developers.openai.com/plugins/quickstart).
+Developer mode availability depends on the user's account and workspace policy. Public discovery across ChatGPT and Codex requires publication to OpenAI's universal plugin directory. This repository is the Codex distribution source and the hosted endpoint is the direct ChatGPT connection source; neither makes Fify automatically discoverable in ChatGPT. See OpenAI's [connection guide](https://developers.openai.com/plugins/deploy/connect-chatgpt) and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins).
+
+## Use from another MCP client
+
+Fify also exposes a public Streamable HTTP MCP endpoint for compatible clients:
+
+`https://fify-chatgpt.renfei1992.chatgpt.site/api/mcp`
+
+The tool always returns a complete plain-language fallback. The inline interactive view requires a host that supports the MCP Apps UI extension.
+
+See [MARKETPLACE_LISTING.md](./MARKETPLACE_LISTING.md) for verified listing metadata, capabilities, limitations, and submission copy.
 
 ## What is included
 
@@ -33,6 +50,7 @@ Public discovery across ChatGPT and Codex requires publication to OpenAI's unive
 - A bundled local MCP server with `render_information_ui`.
 - Product screenshots, activation evals, and reviewer cases.
 - Validation and end-to-end protocol smoke tests.
+- Official MCP Registry metadata for the public remote endpoint.
 
 The local compiler does not research or verify facts. Codex supplies the grounded answer and sources, and Fify validates and renders that material. The bundled server limits each host identity to 20 successful renders per UTC day and two concurrent renders.
 

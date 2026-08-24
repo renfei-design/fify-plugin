@@ -3,6 +3,23 @@
   "version": "0.1.2",
   "private": true,
   "description": "Git-backed Codex marketplace for the Fify information UI plugin.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renfei-design/fify-plugin.git"
+  },
+  "homepage": "https://fify-chatgpt.renfei1992.chatgpt.site",
+  "bugs": {
+    "url": "https://github.com/renfei-design/fify-plugin/issues"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "mcp-apps",
+    "codex-plugin",
+    "chatgpt-plugin",
+    "generative-ui",
+    "information-design"
+  ],
   "license": "Apache-2.0",
   "engines": {
     "node": ">=20"

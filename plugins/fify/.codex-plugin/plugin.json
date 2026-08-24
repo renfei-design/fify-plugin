@@ -3,8 +3,10 @@
   "version": "0.1.2",
   "description": "Turn grounded AI answers into trusted interactive information views.",
   "author": {
-    "name": "Fify Contributors"
+    "name": "renfei-design",
+    "url": "https://github.com/renfei-design"
   },
+  "repository": "https://github.com/renfei-design/fify-plugin",
   "license": "Apache-2.0",
   "homepage": "https://fify-chatgpt.renfei1992.chatgpt.site",
   "keywords": [
@@ -19,7 +21,7 @@
     "displayName": "Fify",
     "shortDescription": "Turn complex answers into interactive views.",
     "longDescription": "Ask normally or tag @Fify. Turn grounded answers into catalog-constrained comparisons, plans, checklists, timelines, decision tools, and editable summaries while preserving the complete ordinary answer as an authoritative fallback. No end-user API key, Fify account, or schema knowledge is required.",
-    "developerName": "Fify Contributors",
+    "developerName": "renfei-design",
     "category": "Productivity",
     "capabilities": [
       "Interactive",

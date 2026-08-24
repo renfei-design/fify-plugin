@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.renfei-design/fify",
+  "title": "Fify",
+  "description": "Turn grounded AI answers into trusted comparisons, plans, timelines, and decision views.",
+  "repository": {
+    "url": "https://github.com/renfei-design/fify-plugin",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://fify-chatgpt.renfei1992.chatgpt.site/api/mcp"
+    }
+  ]
+}
