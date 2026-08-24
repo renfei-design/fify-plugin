@@ -8,7 +8,7 @@ This repository is a Git-backed marketplace for Codex and ChatGPT desktop. The p
 
 ```bash
 codex plugin marketplace add renfei-design/fify-plugin
-codex plugin install fify@fify
+codex plugin add fify@fify
 ```
 
 Start a new Codex task after installation, then ask normally or tag `@Fify`:
@@ -37,4 +37,3 @@ See [BUILD_PROVENANCE.md](./BUILD_PROVENANCE.md) for the public bundle boundary 
 ## License
 
 Apache-2.0. Bundled dependency notices are in [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
-
