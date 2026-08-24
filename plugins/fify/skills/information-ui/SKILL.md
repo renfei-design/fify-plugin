@@ -6,8 +6,12 @@ description: Turn a fully grounded answer into an interactive Fify information v
 # Fify information UI
 
 1. Complete all factual reasoning, retrieval, and source checking before calling Fify. Fify is a presentation compiler, not a source of facts.
+   - Fast path: when the user already supplied the facts or source material needed for the requested view, treat that material as the grounding. Do not browse, enrich, or re-research it unless accuracy or freshness requires verification.
+   - Prepare the envelope in one pass and call the tool immediately after grounding. Do not inspect files, run shell commands, probe the renderer, or narrate internal composition work.
 2. Keep an authoritative plain-language answer. Pass it unchanged as `groundedAnswer`; it is the fallback if UI is unsupported, unavailable, expired, or over quota.
 3. Call only `render_information_ui`. Never call or mention `read_information_ui_run`; it is reserved for the mounted app.
+   - When the user explicitly tags `@Fify`, confirm that `render_information_ui` is available before doing extended retrieval or composition.
+   - If the native tool is unavailable, fail fast with one short sentence. Do not create or edit files, run shell commands, inspect plugin internals, import the MCP SDK, or call Fify over HTTP as a workaround. Those paths cannot mount the native information UI.
 4. Use `InformationEnvelopeV1` version `1.0`:
    - Copy the user request into `originalRequest` and use their locale when known.
    - Supply one to eight semantic sections and at most twelve items per section.
@@ -21,4 +25,3 @@ description: Turn a fully grounded answer into an interactive Fify information v
 7. After the widget mounts, do not repeat the complete answer. Give at most one short sentence orienting the user; the tool already returns the authoritative text fallback.
 8. For follow-up refinements, call the same public tool with a newly grounded envelope. Preserve compatible semantic IDs and pass prior checked, selected, or input state in `continuationState` without exposing it to the user.
 9. Keep v1 non-consequential. Selection, filtering, checklists, disclosure, local inputs, and conversational refinements are allowed. Purchasing, publishing, account changes, and third-party mutations are not.
-

@@ -1,6 +1,6 @@
 {
   "name": "fify",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn grounded AI answers into trusted interactive information views.",
   "author": {
     "name": "Fify Contributors"
@@ -33,6 +33,7 @@
     "logo": "./assets/logo.png",
     "logoDark": "./assets/logo.png",
     "screenshots": [
+      "./assets/fify-timeline-hero.png",
       "./assets/launch-page.png",
       "./assets/interactive-decision.png"
     ],
